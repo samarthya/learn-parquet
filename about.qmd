@@ -1,0 +1,27 @@
+---
+title: "About"
+---
+
+## About this site
+
+This website demonstrates working with Apache Parquet files using PySpark.
+
+### Features
+
+- **Spark Session**: Creates a Spark session with the appName "ParquetPenguinsDemo"
+- **Data Loading**: Loads the Palmer Penguins dataset
+- **Data Cleaning**: Drops all NA values from the dataset
+- **Data Display**: Shows the top 10 rows of the cleaned data
+- **Schema Display**: Displays the DataFrame schema
+
+### Technologies Used
+
+- **Quarto**: For creating the static website
+- **PySpark**: For data processing
+- **Palmer Penguins**: Sample dataset for demonstration
+- **GitHub Actions**: For automated deployment
+
+### About Apache Parquet
+
+Apache Parquet is a columnar storage file format that is optimized for use with big data processing frameworks. It provides efficient data compression and encoding schemes.
+
