@@ -1,0 +1,41 @@
+---
+title: "Parquet Penguins Demo"
+format: html
+jupyter: python3
+---
+
+## Parquet Penguins Demo with PySpark
+
+This demo shows how to work with the Palmer Penguins dataset using PySpark and Apache Parquet format.
+
+```{python}
+# Import required libraries
+from pyspark.sql import SparkSession
+from palmerpenguins import load_penguins
+
+# Create Spark session with the appName ParquetPenguinsDemo
+spark = SparkSession.builder \
+    .appName("ParquetPenguinsDemo") \
+    .master("local[*]") \
+    .getOrCreate()
+
+# Load the penguins dataset
+penguins_pandas = load_penguins()
+
+# Create a Spark DataFrame from the pandas DataFrame
+penguins_df = spark.createDataFrame(penguins_pandas)
+
+# Drop all NA values
+penguins_cleaned = penguins_df.dropna()
+
+# Show the top 10 rows
+print("Top 10 rows of the cleaned penguins dataset:")
+penguins_cleaned.show(10)
+
+# Show the schema
+print("\nSchema of the penguins DataFrame:")
+penguins_cleaned.printSchema()
+
+# Stop the Spark session
+spark.stop()
+```
